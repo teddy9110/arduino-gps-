@@ -42,7 +42,7 @@ void setup()
 void Startup(){
   digitalWrite(7, HIGH);
  
- Serial.println (state);
+ 
   delay(1000);
   digitalWrite(7, LOW);
 
@@ -50,13 +50,13 @@ void Startup(){
   attachInterrupt(digitalPinToInterrupt(3), panic, RISING);
 
   Serial.begin(115200);
-   Serial.println (state);
+  
   BTserial.begin(9600);
  
   GPS.begin(9600);
   
   Serial.print("gps on");
-   Serial.println (state);
+ 
   BTserial.println("gps on ");
 
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
@@ -65,7 +65,7 @@ void Startup(){
 
   GPS.sendCommand(PGCMD_ANTENNA);
 
-    Serial.println (state); 
+  
   useInterrupt(true);
 
   delay(1000);
@@ -171,7 +171,7 @@ void loop()
 void panic() {
  
   state = state + 1  ;
+  BTserial.println("panic");
   
 }
-
 
