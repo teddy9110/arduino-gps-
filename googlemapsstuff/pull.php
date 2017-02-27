@@ -18,47 +18,30 @@ if (!$mysqli) {
 $file = "/home/stud/0/1305057/public_html/store.txt";
 
 
-$f = fopen($file, 'w'); // Open in write mode.MYSQLI_USE_RESULT
+$f = fopen($file, 'a'); // Open in write mode.MYSQLI_USE_RESULT
 
 if ($result = $mysqli->query("SELECT * FROM Location")) {
 
-printf("Select returned %d rows.\n", $result->num_rows);
+	printf("Select returned %d rows.\n", $result->num_rows);
+		for($i =0; $i <$result->num_rows;$i++){
+ 			mysqli_data_seek($result,0);
+ 			$row =  mysqli_fetch_row($result);
+ 			printf ( $flag = $row[0]);
 
- mysqli_data_seek($result,0);
+			echo fwrite($f, $flag);
+      printf ( $flag = $row[1]);
+      echo fwrite($f, $flag);
+      printf ( $flag = $row[2]);
+      echo fwrite($f, $flag);
 
- $row =  mysqli_fetch_row($result);
 
- printf ( $flag = $row[0]);
- printf("   ");
- printf (   $Id = $row[1]);
- printf("   ");
- printf (    $long = $row[2]);
- printf("   ");
-   printf (   $lat = $row[3]);
 
+		}
+    	fclose($f);
 }
 
 
 
-
-//echo fwrite($f,);
-
-
-
-
-
-//fclose($file);
-
-
  $mysqli->close();
 
-/*
-
-//mysqli_free_result($res);
-
-
-fclose($f);
-echo "<a href=/home/stud/0/1305057/public_html/store.txt></a>";
-
-*/
 ?>
