@@ -13,52 +13,64 @@ if (!$mysqli) {
     exit;
 }
 
-
+$lineB = "\n";
 
 $file = "/home/stud/0/1305057/public_html/store.txt";
+//$time = date("d") ;
 
 
 $f = fopen($file, 'w'); // Open in write mode.MYSQLI_USE_RESULT
 
 if ($result = $mysqli->query("SELECT * FROM Location")) {
 
-printf("Select returned %d rows.\n", $result->num_rows);
+	printf("Select returned %d rows.\n", $result->num_rows);
 
- mysqli_data_seek($result,0);
+		for($i =0; $i <$result->num_rows;$i++){
 
- $row =  mysqli_fetch_row($result);
+         			mysqli_data_seek($result,$i);
 
- printf ( $flag = $row[0]);
- printf("   ");
- printf (   $Id = $row[1]);
- printf("   ");
- printf (    $long = $row[2]);
- printf("   ");
-   printf (   $lat = $row[3]);
+         			$row =  mysqli_fetch_row($result);
 
+         			printf ( $flag = $row[0]);
+
+        			echo fwrite($f, $flag);
+
+              echo fwrite($f, ",");
+
+              printf ( $flag = $row[1]);
+
+              echo fwrite($f, $flag);
+
+              echo fwrite($f, ",");
+
+              printf ( $flag = $row[2]);
+
+              echo fwrite($f, $flag);
+
+              echo fwrite($f, ",");
+
+              printf ( $flag = $row[3]);
+
+              echo fwrite($f, $flag);
+
+              echo fwrite($f, ",");
+
+              echo fwrite($f, '\n\ ');
+
+              echo fwrite($f,$lineB);
+
+        //      $time = $row[4];
+        //      printf($time);
+
+		}
+    	fclose($f);
+}else{
+
+  echo("failed sql ");
 }
 
 
 
-
-//echo fwrite($f,);
-
-
-
-
-
-//fclose($file);
-
-
  $mysqli->close();
 
-/*
-
-//mysqli_free_result($res);
-
-
-fclose($f);
-echo "<a href=/home/stud/0/1305057/public_html/store.txt></a>";
-
-*/
 ?>
