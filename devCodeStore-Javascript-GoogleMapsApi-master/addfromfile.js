@@ -49,4 +49,4 @@ if(data[i]["flag"] == "panic" ){
 			infowindow.setContent(data[i]["ID"]);
 			infowindow.open(aMap, marker);
 		}
-		})(marker, i));
+  }
