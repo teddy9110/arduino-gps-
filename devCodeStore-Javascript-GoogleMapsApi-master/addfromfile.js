@@ -18,7 +18,7 @@ var fBrowse = document.getElementById('updateloc');
 		this.request.send();
 
 	}
-	
+
 		let csvdata = this.fetch('GET','some url');
 		let data = csvdata.split('\n');
 		for(let i = 0; i < data.length; i++){
@@ -29,17 +29,17 @@ var fBrowse = document.getElementById('updateloc');
 
 
 if(data[i]["flag"] == "panic" ){
-    marker = new google.maps.Marker({
-		position: new google.maps.LatLng(data[i]["Lat"], data[i]["Long"]),
-		map: aMap
-     icon: 'brown_markerA.png'
-		});
+          marker = new google.maps.Marker({
+      		position: new google.maps.LatLng(data[i]["Lat"], data[i]["Long"]),
+      		map: aMap
+           icon: 'brown_markerA.png'
+      		});
 }else {
-  marker = new google.maps.Marker({
-  position: new google.maps.LatLng(data[i]["Lat"], data[i]["Long"]),
-  map: aMap
-   icon: 'blue_markerA.png'
-  });
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data[i]["Lat"], data[i]["Long"]),
+        map: aMap
+         icon: 'blue_markerA.png'
+        });
 
 }
 
@@ -50,7 +50,3 @@ if(data[i]["flag"] == "panic" ){
 			infowindow.open(aMap, marker);
 		}
 		})(marker, i));
-	}
-
-
- }
