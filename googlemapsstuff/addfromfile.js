@@ -20,7 +20,7 @@ var marker, i;
 	                //console.log("LATITUDE = "+gpsData[i]["Lat"]);
         	       // console.log("LONGITUDE = "+gpsData[i]["Long"]);
                 //    console.log("ID = "+gpsData[i]["ID"]);
-                  if(gpsdata[i]["Flag"]=="1"){
+                  if(gpsData[i]["Flag"]=="1"){
                         marker = new google.maps.Marker({
                         position: new google.maps.LatLng(gpsData[i]["Lat"], gpsData[i]["Long"]),
                         map: aMap,
