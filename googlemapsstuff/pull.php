@@ -18,14 +18,14 @@ $file = "/home/stud/0/1305057/public_html/store.txt";
 
 $f = fopen($file, 'a'); // Open in write mode.MYSQLI_USE_RESULT
 
-if(filesize($file)== 0){
+if(filesize($file) == 0) {
 	echo fwrite($f,"ID,Lat,Long,Flag,");
 	echo fwrite($f, '\n\ ');
 }
 if ($result = $mysqli->query("SELECT * FROM Location")) {
 	printf("Select returned %d rows.\n", $result->num_rows);
 	echo fwrite($f,$lineB);
-	for($i =0; $i <$result->num_rows;$i++){
+	for($i =0; $i <$result->num_rows;$i++) {
 		mysqli_data_seek($result,$i);
 		$row =  mysqli_fetch_row($result);
 		printf ( $flag = $row[0]);
@@ -48,9 +48,6 @@ if ($result = $mysqli->query("SELECT * FROM Location")) {
 	echo("failed sql ");
 }
 
-
-
 $mysqli->close();
-
 
 ?>
