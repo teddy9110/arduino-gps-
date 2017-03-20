@@ -1,6 +1,6 @@
 var fBrowse = document.getElementById('updateloc');
 fBrowse.addEventListener('click', readFile);
-
+object.addEventListener("load", Startimer);
 var infowindow = new google.maps.InfoWindow();
 var marker, i;
 
