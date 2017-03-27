@@ -2,6 +2,9 @@
 
 // needs updating
 
+
+
+
 $mysqli = mysqli_connect("mi-linux.wlv.ac.uk", "1305057", "mickymouse1", "db1305057");
 
 if (!$mysqli) {
@@ -42,11 +45,38 @@ if ($result = $mysqli->query("SELECT * FROM Location")) {
 		echo fwrite($f, ",");
 		echo fwrite($f, '\n\ ');
 		echo fwrite($f,$lineB);
+
 	}
+/*
+			for ($x=0;$x<=5;$x++){
+
+				$rand = rand(500,1000);
+				$randomFloat = rand(-50,70) + (1 -(rand(0,1)/10));
+				 settype($randomFloat, "string");
+			   $gRand = "$randomFloat";
+				 echo $randomFloat;
+				 fwrite($f,$rand);
+				 fwrite($f, ",");
+				 fwrite($f,$gRand);
+			   fwrite($f, ",");
+				 $randomFloat = rand(-50,70) + (1 -(rand(0,1)/10));
+ 			   settype($randomFloat, "string");
+ 			   $gRand = "$randomFloat";
+			   fwrite($f,$gRand);
+				 fwrite($f, ",");
+				 $randF = rand(0,1);
+				 fwrite($f, $randF);
+				 fwrite($f, ",");
+				 fwrite($f, '\n\ ');
+				 fwrite($f,$lineB);
+
+			}
+*/
 	fclose($f);
 } else {
 	echo("failed sql ");
 }
+
 
 $mysqli->close();
 
