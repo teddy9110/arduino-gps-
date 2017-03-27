@@ -4,11 +4,13 @@ var infowindow = new google.maps.InfoWindow();
 var marker, i;
 
 function starttimer() {
-  updatemaps();
+
+
 console.log("timerstarted");
-  timer = setInterval(updatemaps,30000 );
-  timer = setInterval(getcsv,29000 );
+    timer = setInterval(getcsv,30000 );
+
 }
+
 
 function getcsv(){
 
@@ -47,6 +49,7 @@ function updatemaps(){
                       icon: 'https://mi-linux.wlv.ac.uk/~1305057/normal.png'
                   });
               }
+
               google.maps.event.addListener(marker, 'click', (function(marker, i) {
                       return function() {
                           infowindow.setContent(gpsData[i]["ID"]);
